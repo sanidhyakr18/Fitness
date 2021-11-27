@@ -1,0 +1,15 @@
+<svg width="230"
+    height="230"
+    viewBox="0 0 230 230"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M230 115C230 178.513 178.513 230 115 230C51.4873 230 -4.50116e-06 178.513 -1.00536e-05 115C-1.56061e-05 51.4873 51.4872 1.56061e-05 115 1.00536e-05C178.513 4.50116e-06 230 51.4873 230 115Z"
+        fill="#262626" />
+    <path
+        d="M132.037 157.593L89.4445 115L132.037 72.4074"
+        stroke="white"
+        stroke-width="10.2222"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+</svg>
