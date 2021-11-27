@@ -22,8 +22,8 @@ class CardioAdapter : RecyclerView.Adapter<CardioAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: DataItem) = with(itemView) {
-            findViewById<TextView>(R.id.name).text = item.name
-            findViewById<TextView>(R.id.trainer_name).text = item.trainerName
+            findViewById<TextView>(R.id.name).text = item.name?.uppercase()
+            findViewById<TextView>(R.id.trainer_name).text = ("With " + item.trainerName?.uppercase())
             findViewById<TextView>(R.id.duration).text = ((item.duration?.div(60)).toString() + " Min")
             findViewById<TextView>(R.id.difficulty).text = item.difficultyLevelName
 //            Picasso.get().load(item.image).into(findViewById<ImageView>(R.id.imageView))

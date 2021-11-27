@@ -1,53 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/black"
+    android:clickable="true"
+    android:focusable="true">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:srcCompat="@drawable/ic_cardio" />
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end|top"
+        android:layout_margin="8dp"
+        app:srcCompat="@drawable/ic_green_tick" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/gradient_rectangle" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:gravity="center"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            app:srcCompat="@drawable/ic_cardio" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
-            android:fontFamily="@font/montserrat"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:singleLine="true"
+            android:text="CARDIO 101"
             android:textColor="@color/white"
-            android:textSize="24sp" />
+            android:textSize="10sp" />
 
         <TextView
             android:id="@+id/trainer_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/montserrat"
+            android:singleLine="true"
+            android:text="With JIM"
             android:textColor="@color/white"
-            android:text="Trainer Name" />
+            android:textSize="7sp" />
 
-        <TextView
-            android:id="@+id/duration"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/white"
-            android:text="Duration" />
+            android:layout_marginTop="4dp">
 
-        <TextView
-            android:id="@+id/difficulty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/white"
-            android:text="Difficulty" />
+            <TextView
+                android:id="@+id/difficulty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:ems="4"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:singleLine="true"
+                android:text="Intermediate"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:singleLine="true"
+                android:text="45 Min"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>

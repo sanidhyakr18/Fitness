@@ -3,48 +3,51 @@ package com.sandystudios.fitness
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.coroutines.*
 
-
+@DelicateCoroutinesApi
 class MainActivity : AppCompatActivity() {
 
     private val adapter = CardioAdapter()
 
-    private val toolbar: MaterialToolbar by lazy {
-        findViewById(R.id.appBarLayout)
+    private val filterDrawerLayout: DrawerLayout by lazy {
+        findViewById(R.id.filter_drawer_layout)
     }
 
-    private val drawerLayout: DrawerLayout by lazy {
-        findViewById(R.id.drawer_layout)
+    private val filterView: NavigationView by lazy {
+        findViewById(R.id.filter_view)
     }
 
-    private val navView: NavigationView by lazy {
-        findViewById(R.id.nav_view)
+    private val imgFilter: ShapeableImageView by lazy {
+        findViewById(R.id.img_filter)
     }
 
-    private val filterBtn: ShapeableImageView by lazy {
-        findViewById(R.id.filter)
+    private val imgApply: ShapeableImageView by lazy {
+        findViewById(R.id.img_apply)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         findViewById<RecyclerView>(R.id.cardioRV).apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = GridLayoutManager(this@MainActivity, 3)
             adapter = this@MainActivity.adapter
         }
 
-        filterBtn.setOnClickListener {
-            if (!drawerLayout.isDrawerOpen(navView))
-                drawerLayout.openDrawer(navView)
-            else drawerLayout.closeDrawer(navView)
+        imgFilter.setOnClickListener {
+            if (!filterDrawerLayout.isDrawerOpen(filterView))
+                filterDrawerLayout.openDrawer(filterView)
+            else filterDrawerLayout.closeDrawer(filterView)
+        }
+
+        imgApply.setOnClickListener {
+            filterDrawerLayout.closeDrawer(filterView)
         }
 
         GlobalScope.launch(Dispatchers.Main) {
@@ -66,8 +69,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(navView)) {
-            drawerLayout.closeDrawer(navView)
+        if (filterDrawerLayout.isDrawerOpen(filterView)) {
+            filterDrawerLayout.closeDrawer(filterView)
         } else {
             super.onBackPressed()
         }
